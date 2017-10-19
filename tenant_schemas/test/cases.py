@@ -28,6 +28,7 @@ class TenantTestCase(TestCase):
         cls.tenant.save(verbosity=0)  # todo: is there any way to get the verbosity from the test command here?
 
         connection.set_tenant(cls.tenant)
+        super(TenantTestCase, cls).setUpClass()
 
     @classmethod
     def tearDownClass(cls):
@@ -61,6 +62,7 @@ class FastTenantTestCase(TenantTestCase):
             cls.tenant.save(verbosity=0)
 
         connection.set_tenant(cls.tenant)
+        super(TenantTestCase, cls).setUpClass()
 
     @classmethod
     def tearDownClass(cls):
